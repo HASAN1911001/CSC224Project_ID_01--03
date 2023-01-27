@@ -1,6 +1,6 @@
 # import required modules
 from glob import glob
-import shutil
+from subprocess import call
 
 # check whether or not there are any file of required types
 source_path = '../Server/*'
@@ -14,10 +14,15 @@ if len(source_object) > 1:
         object_name = object_path.split('\\')[-1].split('.')
         prefix = object_name[0]
         postfix2 = object_name[1]
+        
+        # if the file is .py run it
+        if postfix2 == 'py':
+            call(["python", "{}".format('.'.join(object_name))])
+
 
 
     # if the files are not in the intermideate folder, save them to the intermdeiate folder
-    # if the file is .py run it
+   
 
     # if the files are in the intermediate folder, check if any changes is made
 
