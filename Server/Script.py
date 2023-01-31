@@ -2,6 +2,7 @@
 from glob import glob
 from subprocess import call
 
+# Path of Folders
 source_path = '../Server/*'
 intermediate_path = '../Intermediate/*'
 
@@ -16,7 +17,6 @@ for i in range(len(intermediate_object)):
     postfix2 = object_name[1]
 
     intermediate_files.append(prefix)
-
 
 # Check if there any file other then Script file
 if len(source_object) > 1:
@@ -37,8 +37,7 @@ if len(source_object) > 1:
             call(["python", "{}".format('.'.join(object_name))])
             print("==================================================")
             print()
-        
-        
+                
         if postfix2 == 'py' or postfix2 == 'c' or postfix2 == 'txt':
 
             # if the files are in the intermediate folder, check if any changes is made
@@ -53,8 +52,8 @@ if len(source_object) > 1:
                 if file != iFile:
                     print()
                     print("===============================================")
-                    print("There are some changes in the file {path}!")
-                    print("Do yo want to keep the changed file?")
+                    print(f"There are some changes in the file {path}!")
+                    print("Do you want to keep the changed file?")
                     opinion = input("Y or N: ")
                     print("===============================================")
                     print()
@@ -79,7 +78,6 @@ if len(source_object) > 1:
                 with open(f"../Intermediate/{path}", 'w') as f:
                     for i in range(len(file)):
                         f.write(''.join(file[i]))
-
 
 
 #Algorithm:

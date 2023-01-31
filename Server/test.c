@@ -2,7 +2,7 @@
 
 int main()
 {
-    print("I a test.c");
+    print("I am test.c");
 
     return 0;
 }
