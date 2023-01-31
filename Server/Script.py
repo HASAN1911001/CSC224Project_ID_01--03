@@ -28,8 +28,8 @@ if len(source_object) > 1:
         
         
         # if the file is .py run it
-        # if postfix2 == 'py' and prefix != 'Script':
-        #     call(["python", "{}".format('.'.join(object_name))])
+        if postfix2 == 'py' and prefix != 'Script':
+            call(["python", "{}".format('.'.join(object_name))])
         
         
         
@@ -47,18 +47,37 @@ if len(source_object) > 1:
                 # if changes are made, notify the user
                 if file != iFile:
                     opinion = input(f"There are some changes in the file {path}. Do you want to keep the changed file: ")
+                    
+                    # if user wants to save the changes, save the file to intermediate folder
+                    if opinion == 'Y':
+                        with open(f"../Intermediate/{path}", 'w') as f:
+                            for i in range(len(file)):
+                                f.write(''.join(file[i]))
 
-                    if opinion == 'N':
+                    # if he does not want to change it, replace the file from the intermediate folder
+                    elif opinion == 'N':
                         with open(path, 'w') as f:
                             for i in range(len(iFile)):
                                 f.write(''.join(iFile[i]))
 
+            # if the file is not in the intermideate folder, save it to the intermdeiate folder
+            else:
+                with open(path, 'r') as f:
+                    file = f.readlines()
 
-                # if user wants to save the changes, save the file to intermediate folder
+                with open(f"../Intermediate/{path}", 'w') as f:
+                    for i in range(len(file)):
+                        f.write(''.join(file[i]))
 
-                # if he does not want to change it, replace the file from the intermediate folder
+
+
+
+
+                
+
+                
             
-            # if the files are not in the intermideate folder, save them to the intermdeiate folder
+            
             
             
 
