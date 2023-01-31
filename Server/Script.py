@@ -68,27 +68,3 @@ if len(source_object) > 1:
                 with open(f"../Intermediate/{path}", 'w') as f:
                     for i in range(len(file)):
                         f.write(''.join(file[i]))
-
-
-
-
-
-                
-
-                
-            
-            
-            
-            
-
-   
-
-    
-        
-
-        
-
-            
-
-            
-
